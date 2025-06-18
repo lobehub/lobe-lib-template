@@ -1,0 +1,81 @@
+{
+  "name": "lobe-lib-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A modern, well-structured TypeScript library template for building high-quality npm packages",
+  "homepage": "https://github.com/lobehub/lobe-lib-template",
+  "bugs": {
+    "url": "https://github.com/lobehub/lobe-lib-template/issues/new/choose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lobehub/lobe-lib-template.git"
+  },
+  "license": "MIT",
+  "author": "LobeHub <i@lobehub.com>",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "ci": "npm run lint:circular && npm run lint && npm run type-check",
+    "dev": "tsup --watch",
+    "example": "bun run build && tsx examples/basic-usage.ts",
+    "lint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:circular": "dpdm src/**/*.{ts,tsx}  --warning false  --tree false  --exit-code circular:1  -T true",
+    "lint:md": "remark . --quiet --frail --output",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage  --passWithNoTests",
+    "test:watch": "vitest --watch",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{md,mdc}": [
+      "remark --silent --output --",
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.json": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{mjs,cjs}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --parser=typescript --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@lobehub/lint": "^1.26.1",
+    "dotenv": "^16.4.5",
+    "dpdm": "^3.14.0",
+    "eslint": "^8.57.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "remark": "^15.0.1",
+    "remark-cli": "^12.0.1",
+    "semantic-release": "^21.1.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
