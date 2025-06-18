@@ -31,6 +31,7 @@
     "postpack": "clean-package restore",
     "prepare": "husky",
     "prepublishOnly": "npm run build",
+    "release": "semantic-release",
     "test": "vitest",
     "test:coverage": "vitest run --coverage  --passWithNoTests",
     "test:watch": "vitest --watch",
@@ -58,20 +59,21 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@lobehub/lint": "^1.26.1",
-    "dotenv": "^16.4.5",
+    "@commitlint/cli": "^19.8.1",
+    "@lobehub/lint": "^1.26.2",
+    "dotenv": "^16.5.0",
     "dpdm": "^3.14.0",
     "eslint": "^8.57.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.5.0",
+    "lint-staged": "^16.1.2",
     "prettier": "^3.5.3",
     "remark": "^15.0.1",
     "remark-cli": "^12.0.1",
     "semantic-release": "^21.1.2",
-    "tsup": "^8.4.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.2"
+    "vitest": "^3.2.4"
   },
   "packageManager": "pnpm@10.11.0",
   "publishConfig": {
