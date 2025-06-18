@@ -1,6 +1,6 @@
 {
   "name": "lobe-lib-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "A modern, well-structured TypeScript library template for building high-quality npm packages",
   "homepage": "https://github.com/lobehub/lobe-lib-template",
