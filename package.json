@@ -31,6 +31,7 @@
     "postpack": "clean-package restore",
     "prepare": "husky",
     "prepublishOnly": "npm run build",
+    "prettier": "prettier -c --write --no-error-on-unmatched-pattern \"**/**\"",
     "release": "semantic-release",
     "test": "vitest",
     "test:coverage": "vitest run --coverage  --passWithNoTests",
